@@ -1,0 +1,160 @@
+/* Container Principal (Card) */
+.card-container {
+    background-color: #ffffff;
+    width: 500px;
+    padding: 30px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    box-shadow: 8px 8px 0px #000;
+    position: relative;
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        padding: 20px;
+        width: 350px;
+        box-shadow: 4px 4px 0px #000;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .header {
+        padding-top: 25px;
+    }
+}
+
+/* Cabeçalho */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.logout-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #000;
+}
+
+.title {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Lista de Tarefas */
+.task-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    gap: 15px;
+}
+
+.task-text {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.completed-text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Botões de Ação e Status (Reset incluído aqui) */
+.status-btn, .action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease;
+}
+
+.status-btn:active, .action-btn:active {
+    transform: scale(0.9);
+}
+
+.status-btn {
+    font-size: 1.2rem;
+}
+
+.status-btn.success { color: #10B981; } 
+.status-btn.warning { color: #F59E0B; } 
+.status-btn.pending { color: #9CA3AF; } 
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.action-btn:hover { color: #000; }
+.action-btn.delete:hover { color: #ff5c5c; }
+
+/* Seção Adicionar Nova Tarefa */
+.add-task-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-task-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.add-task-input {
+    width: 100%;
+    padding: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    border: 2px solid #000;
+    outline: none;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff5c5c;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #000;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.add-btn:active {
+    transform: scale(0.9);
+}
+
+.add-btn:hover {
+    background-color: #e54b4b;
+}
