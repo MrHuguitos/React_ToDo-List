@@ -130,3 +130,15 @@
   font-weight: bold;
   text-decoration: underline;
 }
+
+.error {
+  display: block; 
+  border-radius: 5px;
+  background-color: #fd9b9b;
+  color: #ffffff;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 2px solid #ff8484;
+  font-weight: bold;
+  text-align: center;
+}

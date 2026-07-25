@@ -6,9 +6,11 @@ import styles from "./Login.module.css";
 function Login() {
     const [isLogin, setIsLogin] = useState(true);
     const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleChange = (e) => {
+        setError('');
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -28,19 +30,12 @@ function Login() {
             const data = await response.json();
 
             if (response.ok) {
-                if (isLogin) {
-                    sessionStorage.setItem('name', data.name);
-                    alert("Bem-vindo ao To-Do List!");
-                    navigate("/dashboard");
-                } else {
-                    alert("Conta criada! Faça Login.");
-                    setIsLogin(true);
-                }
-            } else {
-                alert(data.error || "Erro ao conectar!");
-            }
+                sessionStorage.setItem('name', data.name);
+
+                navigate("/dashboard");
+            } else setError(data.message);
         } catch (error) {
-            alert("Erro de conexão com o servidor.");
+            setError("Erro de conexão com o servidor.");
         }
     };
 
@@ -57,19 +52,19 @@ function Login() {
             
             if (response.ok && data.name) {
                 sessionStorage.setItem('name', data.name);
-                alert("Bem-vindo ao To-Do List!");
+                
                 navigate("/dashboard");
-            } else {
-                alert(data.message || "Erro no login com Google!");
-            }
+            } else setError(data.message);
         } catch (error) {
-            alert("Erro de conexão com o servidor.");
+            setError("Erro de conexão com o servidor.");
         }
     };
 
     return (
         <form className={styles["login-container"]} onSubmit={handleSubmit}>
             <h1>{ isLogin ? "LOGIN" : "REGISTER" }</h1>
+            
+            { error && <span className={styles["error"]}>{error}</span> }
         
             <div className={styles["input-group"]}>
                 <label>EMAIL</label>
